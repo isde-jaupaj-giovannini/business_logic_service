@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="bl_service" default="run" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
+
+
+    <property name="server.url" value="http://192.168.0.2:6903/ws/storage?wsdl" />
+
+
+
     <!-- PART 1: Ivy properties, download, installation and configuration -->
     <property name="ivy.install.version" value="2.4.0-rc1"/>
     <property name="ivy.jar.dir" value="${basedir}/ivy"/>
@@ -24,6 +30,8 @@
     <property name="build.dir" value="build"/>
     <property name="src.dir" value="src"/>
     <property name="lib.dir" value="libs"/>
+    <property name="src.gen.dir" value="src/com/unitn/storage_service"/>
+
     <!-- =================================
           target: resolve downloads the dependencies to your lib folder
          ================================= -->
@@ -51,9 +59,17 @@
     <target name="clean">
         <echo message="Clean has been called"/>
         <delete dir="${build.dir}"/>
+        <delete dir="${src.gen.dir}" />
         <echo message="${build.dir} has been deleted"/>
     </target>
-    <target name="install" depends="clean, init">
+
+    <target name="generate-client">
+        <exec executable="${java.home}/../bin/wsimport">
+            <arg line="-d src -keep  ${server.url}"/>
+        </exec>
+    </target>
+
+    <target name="install" depends="clean, init, generate-client">
         <echo message="Compile target has been called"/>
         <javac srcdir="${src.dir}" debug="true" destdir="${build.dir}" classpathref="lib.path.id" includeAntRuntime="false">
         </javac>
