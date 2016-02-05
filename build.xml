@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="bl_service" default="run" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
+<project name="bl_service" default="start" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
 
 
-    <property name="server.url" value="http://192.168.0.2:6903/ws/storage?wsdl" />
+    <property name="server.url" value="https://radiant-chamber-78838.herokuapp.com/ws/storage?wsdl" />
 
 
 
@@ -59,19 +59,21 @@
     <target name="clean">
         <echo message="Clean has been called"/>
         <delete dir="${build.dir}"/>
-        <delete dir="${src.gen.dir}" />
         <echo message="${build.dir} has been deleted"/>
     </target>
 
     <target name="generate-client">
+        <delete dir="${src.gen.dir}" />
         <exec executable="${java.home}/../bin/wsimport">
             <arg line="-d src -keep  ${server.url}"/>
         </exec>
     </target>
 
-    <target name="install" depends="clean, init, generate-client">
+    <target name="install" depends="clean, init">
         <echo message="Compile target has been called"/>
-        <javac srcdir="${src.dir}" debug="true" destdir="${build.dir}" classpathref="lib.path.id" includeAntRuntime="false">
+        <javac srcdir="${src.dir}"
+               target="1.7" source="1.7"
+               debug="true" destdir="${build.dir}" classpathref="lib.path.id" includeAntRuntime="false">
         </javac>
         <copy todir="${build.dir}" overwrite="true">
             <fileset dir="${src.dir}">
@@ -80,7 +82,7 @@
             </fileset>
         </copy>
     </target>
-    <target name="run" depends="install">
+    <target name="start" depends="install">
         <echo message="app start introsde.assignment.soap.PeopleImpl in ${build.dir}"/>
         <java classname="com.unitn.bl_service.BLServiceImpl" classpath="${build.dir}" fork="true">
             <arg value="$JAVA_OPTS  -cp"/>
