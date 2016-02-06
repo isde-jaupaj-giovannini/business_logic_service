@@ -1,5 +1,6 @@
 package com.unitn.bl_service;
 
+import com.unitn.local_database.MeasureData;
 import com.unitn.local_database.UserData;
 
 import javax.jws.WebMethod;
@@ -21,4 +22,8 @@ public interface BLService {
     @WebMethod
     @WebResult
     boolean registerNewUser(UserData user);
+
+    @WebMethod
+    @WebResult
+    boolean saveNewSteps(MeasureData measureData);
 }

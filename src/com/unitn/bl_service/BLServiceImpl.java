@@ -1,5 +1,6 @@
 package com.unitn.bl_service;
 
+import com.unitn.local_database.MeasureData;
 import com.unitn.local_database.UserData;
 import com.unitn.storage_service.Storage;
 import com.unitn.storage_service.StorageService;
@@ -39,6 +40,11 @@ public class BLServiceImpl implements BLService {
 
         }
 
+        return false;
+    }
+
+    @Override
+    public boolean saveNewSteps(MeasureData measureData) {
         return false;
     }
 
