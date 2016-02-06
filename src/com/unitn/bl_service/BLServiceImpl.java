@@ -58,16 +58,14 @@ public class BLServiceImpl implements BLService {
         storage.saveData(measureData);
         List<Goal> goals = storage.getGoals(measureData.getIdTelegram());
         for (Goal goal: goals) {
-            long t1= Long.parseLong( goal.getCreatedDate().substring(6, goal.getDueDate().length()-2) );
+            long t1= Long.parseLong( goal.getCreatedDate().substring(6, goal.getCreatedDate().length()-2) );
             Calendar date1 = Calendar.getInstance();
             date1.setTimeInMillis(t1);
             Calendar date2 = Calendar.getInstance() ;
             try {
                 date2.setTime(simpleDateFormat.parse(goal.getDueDate()));
                 date2.set(Calendar.YEAR, date1.get(Calendar.YEAR));
-
-                int sum = storage.getFromToStepsData(t1, date2.getTimeInMillis());
-
+                int sum = storage.getFromToStepsData(measureData.getIdTelegram(), t1, date2.getTimeInMillis());
                 if(sum >= Integer.parseInt( goal.getContent() )){
                     response.setStatus(true);
                     response.setMessage( storage.getFamousQuote().getQuote() );

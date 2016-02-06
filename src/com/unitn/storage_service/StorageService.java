@@ -60,6 +60,7 @@ public interface StorageService {
 
     /**
      * 
+     * @param arg2
      * @param arg1
      * @param arg0
      * @return
@@ -72,9 +73,11 @@ public interface StorageService {
     @Action(input = "http://storage_service.unitn.com/StorageService/getFromToStepsDataRequest", output = "http://storage_service.unitn.com/StorageService/getFromToStepsDataResponse")
     public Integer getFromToStepsData(
         @WebParam(name = "arg0", targetNamespace = "")
-        long arg0,
+        int arg0,
         @WebParam(name = "arg1", targetNamespace = "")
-        long arg1);
+        long arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        long arg2);
 
     /**
      * 
