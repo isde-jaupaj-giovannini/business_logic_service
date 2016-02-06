@@ -1,7 +1,9 @@
 package com.unitn.bl_service;
 
+import com.unitn.data.NewStepResponse;
 import com.unitn.local_database.MeasureData;
 import com.unitn.local_database.UserData;
+import com.unitn.storage_service.Goal;
 import com.unitn.storage_service.Storage;
 import com.unitn.storage_service.StorageService;
 
@@ -10,6 +12,10 @@ import javax.xml.ws.Endpoint;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.URISyntaxException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.List;
 
 /**
  * Created by erinda on 1/24/16.
@@ -19,6 +25,7 @@ import java.net.URISyntaxException;
 public class BLServiceImpl implements BLService {
 
     StorageService storage = new Storage().getStorageServiceImplPort();
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("d MMM hh:mm aa");
 
     @Override
     public String getDescription() {
@@ -44,8 +51,44 @@ public class BLServiceImpl implements BLService {
     }
 
     @Override
-    public boolean saveNewSteps(MeasureData measureData) {
-        return false;
+    public NewStepResponse saveNewSteps(MeasureData measureData) {
+        NewStepResponse response = new NewStepResponse();
+        response.setStatus(false);
+
+        storage.saveData(measureData);
+        List<Goal> goals = storage.getGoals(measureData.getIdTelegram());
+        for (Goal goal: goals) {
+            long t1= Long.parseLong( goal.getCreatedDate().substring(6, goal.getDueDate().length()-2) );
+            Calendar date1 = Calendar.getInstance();
+            date1.setTimeInMillis(t1);
+            Calendar date2 = Calendar.getInstance() ;
+            try {
+                date2.setTime(simpleDateFormat.parse(goal.getDueDate()));
+                date2.set(Calendar.YEAR, date1.get(Calendar.YEAR));
+
+                int sum = storage.getFromToStepsData(t1, date2.getTimeInMillis());
+
+                if(sum >= Integer.parseInt( goal.getContent() )){
+                    response.setStatus(true);
+                    response.setMessage( storage.getFamousQuote().getQuote() );
+                    response.setUrl( storage.getRandomComic().getImg() );
+
+                    break;
+                }
+
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
+
+        if(!response.isStatus()){
+            response.setMessage( storage.getMovieQuote().getQuote() );
+        }
+
+        return response;
     }
 
 
