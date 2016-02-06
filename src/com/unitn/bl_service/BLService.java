@@ -1,5 +1,6 @@
 package com.unitn.bl_service;
 
+import com.unitn.data.NewStepResponse;
 import com.unitn.local_database.MeasureData;
 import com.unitn.local_database.UserData;
 
@@ -25,5 +26,5 @@ public interface BLService {
 
     @WebMethod
     @WebResult
-    boolean saveNewSteps(MeasureData measureData);
+    NewStepResponse saveNewSteps(MeasureData measureData);
 }

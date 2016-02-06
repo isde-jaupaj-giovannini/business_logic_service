@@ -11,6 +11,7 @@
 
         <!-- JAX-WS bundle dependency -->
         <dependency org="com.sun.xml.ws" name="jaxws-rt" rev="2.2.8"/>
+        <dependency org="org.projectlombok" name="lombok" rev="1.16.6"/>
 
         <dependency org="javax" name="javaee-api" rev="7.0"/>
     </dependencies>

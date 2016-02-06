@@ -24,18 +24,30 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _SaveDataResponse_QNAME = new QName("http://storage_service.unitn.com/", "saveDataResponse");
-    private final static QName _SaveGoalResponse_QNAME = new QName("http://storage_service.unitn.com/", "saveGoalResponse");
+    private final static QName _GetFromToStepsData_QNAME = new QName("http://storage_service.unitn.com/", "getFromToStepsData");
     private final static QName _CreateUser_QNAME = new QName("http://storage_service.unitn.com/", "createUser");
+    private final static QName _GetFamousQuote_QNAME = new QName("http://storage_service.unitn.com/", "getFamousQuote");
+    private final static QName _GetRandomComicResponse_QNAME = new QName("http://storage_service.unitn.com/", "getRandomComicResponse");
+    private final static QName _GetGoalsResponse_QNAME = new QName("http://storage_service.unitn.com/", "getGoalsResponse");
+    private final static QName _GetRandomComic_QNAME = new QName("http://storage_service.unitn.com/", "getRandomComic");
+    private final static QName _GetGoals_QNAME = new QName("http://storage_service.unitn.com/", "getGoals");
     private final static QName _UserExistsResponse_QNAME = new QName("http://storage_service.unitn.com/", "userExistsResponse");
     private final static QName _UserExists_QNAME = new QName("http://storage_service.unitn.com/", "userExists");
-    private final static QName _GetDescription_QNAME = new QName("http://storage_service.unitn.com/", "getDescription");
-    private final static QName _GetLatestData_QNAME = new QName("http://storage_service.unitn.com/", "getLatestData");
     private final static QName _SaveData_QNAME = new QName("http://storage_service.unitn.com/", "saveData");
     private final static QName _CreateUserResponse_QNAME = new QName("http://storage_service.unitn.com/", "createUserResponse");
+    private final static QName _GetFromToStepsDataResponse_QNAME = new QName("http://storage_service.unitn.com/", "getFromToStepsDataResponse");
+    private final static QName _XkcdComic_QNAME = new QName("http://storage_service.unitn.com/", "xkcdComic");
     private final static QName _GetLatestDataResponse_QNAME = new QName("http://storage_service.unitn.com/", "getLatestDataResponse");
+    private final static QName _SaveDataResponse_QNAME = new QName("http://storage_service.unitn.com/", "saveDataResponse");
+    private final static QName _SaveGoalResponse_QNAME = new QName("http://storage_service.unitn.com/", "saveGoalResponse");
+    private final static QName _GetFamousQuoteResponse_QNAME = new QName("http://storage_service.unitn.com/", "getFamousQuoteResponse");
+    private final static QName _GetMovieQuote_QNAME = new QName("http://storage_service.unitn.com/", "getMovieQuote");
+    private final static QName _Quote_QNAME = new QName("http://storage_service.unitn.com/", "quote");
+    private final static QName _GetDescription_QNAME = new QName("http://storage_service.unitn.com/", "getDescription");
+    private final static QName _GetLatestData_QNAME = new QName("http://storage_service.unitn.com/", "getLatestData");
     private final static QName _GetDescriptionResponse_QNAME = new QName("http://storage_service.unitn.com/", "getDescriptionResponse");
     private final static QName _GetUser_QNAME = new QName("http://storage_service.unitn.com/", "getUser");
+    private final static QName _GetMovieQuoteResponse_QNAME = new QName("http://storage_service.unitn.com/", "getMovieQuoteResponse");
     private final static QName _SaveGoal_QNAME = new QName("http://storage_service.unitn.com/", "saveGoal");
     private final static QName _GetUserResponse_QNAME = new QName("http://storage_service.unitn.com/", "getUserResponse");
 
@@ -44,6 +56,14 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link GetMovieQuoteResponse }
+     * 
+     */
+    public GetMovieQuoteResponse createGetMovieQuoteResponse() {
+        return new GetMovieQuoteResponse();
     }
 
     /**
@@ -63,22 +83,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CreateUserResponse }
-     * 
-     */
-    public CreateUserResponse createCreateUserResponse() {
-        return new CreateUserResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetLatestDataResponse }
-     * 
-     */
-    public GetLatestDataResponse createGetLatestDataResponse() {
-        return new GetLatestDataResponse();
-    }
-
-    /**
      * Create an instance of {@link GetDescriptionResponse }
      * 
      */
@@ -92,14 +96,6 @@ public class ObjectFactory {
      */
     public GetUser createGetUser() {
         return new GetUser();
-    }
-
-    /**
-     * Create an instance of {@link SaveData }
-     * 
-     */
-    public SaveData createSaveData() {
-        return new SaveData();
     }
 
     /**
@@ -119,19 +115,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UserExists }
+     * Create an instance of {@link GetFamousQuoteResponse }
      * 
      */
-    public UserExists createUserExists() {
-        return new UserExists();
+    public GetFamousQuoteResponse createGetFamousQuoteResponse() {
+        return new GetFamousQuoteResponse();
     }
 
     /**
-     * Create an instance of {@link UserExistsResponse }
+     * Create an instance of {@link GetMovieQuote }
      * 
      */
-    public UserExistsResponse createUserExistsResponse() {
-        return new UserExistsResponse();
+    public GetMovieQuote createGetMovieQuote() {
+        return new GetMovieQuote();
+    }
+
+    /**
+     * Create an instance of {@link Quote }
+     * 
+     */
+    public Quote createQuote() {
+        return new Quote();
     }
 
     /**
@@ -143,6 +147,86 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SaveDataResponse }
+     * 
+     */
+    public SaveDataResponse createSaveDataResponse() {
+        return new SaveDataResponse();
+    }
+
+    /**
+     * Create an instance of {@link CreateUserResponse }
+     * 
+     */
+    public CreateUserResponse createCreateUserResponse() {
+        return new CreateUserResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetFromToStepsDataResponse }
+     * 
+     */
+    public GetFromToStepsDataResponse createGetFromToStepsDataResponse() {
+        return new GetFromToStepsDataResponse();
+    }
+
+    /**
+     * Create an instance of {@link XkcdComic }
+     * 
+     */
+    public XkcdComic createXkcdComic() {
+        return new XkcdComic();
+    }
+
+    /**
+     * Create an instance of {@link GetLatestDataResponse }
+     * 
+     */
+    public GetLatestDataResponse createGetLatestDataResponse() {
+        return new GetLatestDataResponse();
+    }
+
+    /**
+     * Create an instance of {@link SaveData }
+     * 
+     */
+    public SaveData createSaveData() {
+        return new SaveData();
+    }
+
+    /**
+     * Create an instance of {@link UserExists }
+     * 
+     */
+    public UserExists createUserExists() {
+        return new UserExists();
+    }
+
+    /**
+     * Create an instance of {@link GetRandomComic }
+     * 
+     */
+    public GetRandomComic createGetRandomComic() {
+        return new GetRandomComic();
+    }
+
+    /**
+     * Create an instance of {@link GetGoals }
+     * 
+     */
+    public GetGoals createGetGoals() {
+        return new GetGoals();
+    }
+
+    /**
+     * Create an instance of {@link UserExistsResponse }
+     * 
+     */
+    public UserExistsResponse createUserExistsResponse() {
+        return new UserExistsResponse();
+    }
+
+    /**
      * Create an instance of {@link CreateUser }
      * 
      */
@@ -151,11 +235,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SaveDataResponse }
+     * Create an instance of {@link GetFamousQuote }
      * 
      */
-    public SaveDataResponse createSaveDataResponse() {
-        return new SaveDataResponse();
+    public GetFamousQuote createGetFamousQuote() {
+        return new GetFamousQuote();
+    }
+
+    /**
+     * Create an instance of {@link GetRandomComicResponse }
+     * 
+     */
+    public GetRandomComicResponse createGetRandomComicResponse() {
+        return new GetRandomComicResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetGoalsResponse }
+     * 
+     */
+    public GetGoalsResponse createGetGoalsResponse() {
+        return new GetGoalsResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetFromToStepsData }
+     * 
+     */
+    public GetFromToStepsData createGetFromToStepsData() {
+        return new GetFromToStepsData();
     }
 
     /**
@@ -167,21 +275,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SaveDataResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetFromToStepsData }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "saveDataResponse")
-    public JAXBElement<SaveDataResponse> createSaveDataResponse(SaveDataResponse value) {
-        return new JAXBElement<SaveDataResponse>(_SaveDataResponse_QNAME, SaveDataResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SaveGoalResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "saveGoalResponse")
-    public JAXBElement<SaveGoalResponse> createSaveGoalResponse(SaveGoalResponse value) {
-        return new JAXBElement<SaveGoalResponse>(_SaveGoalResponse_QNAME, SaveGoalResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "getFromToStepsData")
+    public JAXBElement<GetFromToStepsData> createGetFromToStepsData(GetFromToStepsData value) {
+        return new JAXBElement<GetFromToStepsData>(_GetFromToStepsData_QNAME, GetFromToStepsData.class, null, value);
     }
 
     /**
@@ -191,6 +290,51 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "createUser")
     public JAXBElement<CreateUser> createCreateUser(CreateUser value) {
         return new JAXBElement<CreateUser>(_CreateUser_QNAME, CreateUser.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetFamousQuote }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "getFamousQuote")
+    public JAXBElement<GetFamousQuote> createGetFamousQuote(GetFamousQuote value) {
+        return new JAXBElement<GetFamousQuote>(_GetFamousQuote_QNAME, GetFamousQuote.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetRandomComicResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "getRandomComicResponse")
+    public JAXBElement<GetRandomComicResponse> createGetRandomComicResponse(GetRandomComicResponse value) {
+        return new JAXBElement<GetRandomComicResponse>(_GetRandomComicResponse_QNAME, GetRandomComicResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetGoalsResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "getGoalsResponse")
+    public JAXBElement<GetGoalsResponse> createGetGoalsResponse(GetGoalsResponse value) {
+        return new JAXBElement<GetGoalsResponse>(_GetGoalsResponse_QNAME, GetGoalsResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetRandomComic }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "getRandomComic")
+    public JAXBElement<GetRandomComic> createGetRandomComic(GetRandomComic value) {
+        return new JAXBElement<GetRandomComic>(_GetRandomComic_QNAME, GetRandomComic.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetGoals }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "getGoals")
+    public JAXBElement<GetGoals> createGetGoals(GetGoals value) {
+        return new JAXBElement<GetGoals>(_GetGoals_QNAME, GetGoals.class, null, value);
     }
 
     /**
@@ -212,24 +356,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetDescription }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "getDescription")
-    public JAXBElement<GetDescription> createGetDescription(GetDescription value) {
-        return new JAXBElement<GetDescription>(_GetDescription_QNAME, GetDescription.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetLatestData }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "getLatestData")
-    public JAXBElement<GetLatestData> createGetLatestData(GetLatestData value) {
-        return new JAXBElement<GetLatestData>(_GetLatestData_QNAME, GetLatestData.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link SaveData }{@code >}}
      * 
      */
@@ -248,12 +374,93 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetFromToStepsDataResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "getFromToStepsDataResponse")
+    public JAXBElement<GetFromToStepsDataResponse> createGetFromToStepsDataResponse(GetFromToStepsDataResponse value) {
+        return new JAXBElement<GetFromToStepsDataResponse>(_GetFromToStepsDataResponse_QNAME, GetFromToStepsDataResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link XkcdComic }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "xkcdComic")
+    public JAXBElement<XkcdComic> createXkcdComic(XkcdComic value) {
+        return new JAXBElement<XkcdComic>(_XkcdComic_QNAME, XkcdComic.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetLatestDataResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "getLatestDataResponse")
     public JAXBElement<GetLatestDataResponse> createGetLatestDataResponse(GetLatestDataResponse value) {
         return new JAXBElement<GetLatestDataResponse>(_GetLatestDataResponse_QNAME, GetLatestDataResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SaveDataResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "saveDataResponse")
+    public JAXBElement<SaveDataResponse> createSaveDataResponse(SaveDataResponse value) {
+        return new JAXBElement<SaveDataResponse>(_SaveDataResponse_QNAME, SaveDataResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SaveGoalResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "saveGoalResponse")
+    public JAXBElement<SaveGoalResponse> createSaveGoalResponse(SaveGoalResponse value) {
+        return new JAXBElement<SaveGoalResponse>(_SaveGoalResponse_QNAME, SaveGoalResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetFamousQuoteResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "getFamousQuoteResponse")
+    public JAXBElement<GetFamousQuoteResponse> createGetFamousQuoteResponse(GetFamousQuoteResponse value) {
+        return new JAXBElement<GetFamousQuoteResponse>(_GetFamousQuoteResponse_QNAME, GetFamousQuoteResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetMovieQuote }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "getMovieQuote")
+    public JAXBElement<GetMovieQuote> createGetMovieQuote(GetMovieQuote value) {
+        return new JAXBElement<GetMovieQuote>(_GetMovieQuote_QNAME, GetMovieQuote.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Quote }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "quote")
+    public JAXBElement<Quote> createQuote(Quote value) {
+        return new JAXBElement<Quote>(_Quote_QNAME, Quote.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetDescription }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "getDescription")
+    public JAXBElement<GetDescription> createGetDescription(GetDescription value) {
+        return new JAXBElement<GetDescription>(_GetDescription_QNAME, GetDescription.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetLatestData }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "getLatestData")
+    public JAXBElement<GetLatestData> createGetLatestData(GetLatestData value) {
+        return new JAXBElement<GetLatestData>(_GetLatestData_QNAME, GetLatestData.class, null, value);
     }
 
     /**
@@ -272,6 +479,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "getUser")
     public JAXBElement<GetUser> createGetUser(GetUser value) {
         return new JAXBElement<GetUser>(_GetUser_QNAME, GetUser.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetMovieQuoteResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "getMovieQuoteResponse")
+    public JAXBElement<GetMovieQuoteResponse> createGetMovieQuoteResponse(GetMovieQuoteResponse value) {
+        return new JAXBElement<GetMovieQuoteResponse>(_GetMovieQuoteResponse_QNAME, GetMovieQuoteResponse.class, null, value);
     }
 
     /**

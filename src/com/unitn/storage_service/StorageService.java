@@ -60,6 +60,51 @@ public interface StorageService {
 
     /**
      * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.lang.Integer
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getFromToStepsData", targetNamespace = "http://storage_service.unitn.com/", className = "com.unitn.storage_service.GetFromToStepsData")
+    @ResponseWrapper(localName = "getFromToStepsDataResponse", targetNamespace = "http://storage_service.unitn.com/", className = "com.unitn.storage_service.GetFromToStepsDataResponse")
+    @Action(input = "http://storage_service.unitn.com/StorageService/getFromToStepsDataRequest", output = "http://storage_service.unitn.com/StorageService/getFromToStepsDataResponse")
+    public Integer getFromToStepsData(
+        @WebParam(name = "arg0", targetNamespace = "")
+        long arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        long arg1);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<com.unitn.storage_service.Goal>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getGoals", targetNamespace = "http://storage_service.unitn.com/", className = "com.unitn.storage_service.GetGoals")
+    @ResponseWrapper(localName = "getGoalsResponse", targetNamespace = "http://storage_service.unitn.com/", className = "com.unitn.storage_service.GetGoalsResponse")
+    @Action(input = "http://storage_service.unitn.com/StorageService/getGoalsRequest", output = "http://storage_service.unitn.com/StorageService/getGoalsResponse")
+    public List<Goal> getGoals(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0);
+
+    /**
+     * 
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getDescription", targetNamespace = "http://storage_service.unitn.com/", className = "com.unitn.storage_service.GetDescription")
+    @ResponseWrapper(localName = "getDescriptionResponse", targetNamespace = "http://storage_service.unitn.com/", className = "com.unitn.storage_service.GetDescriptionResponse")
+    @Action(input = "http://storage_service.unitn.com/StorageService/getDescriptionRequest", output = "http://storage_service.unitn.com/StorageService/getDescriptionResponse")
+    public String getDescription();
+
+    /**
+     * 
      * @param arg0
      * @return
      *     returns boolean
@@ -108,18 +153,6 @@ public interface StorageService {
 
     /**
      * 
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getDescription", targetNamespace = "http://storage_service.unitn.com/", className = "com.unitn.storage_service.GetDescription")
-    @ResponseWrapper(localName = "getDescriptionResponse", targetNamespace = "http://storage_service.unitn.com/", className = "com.unitn.storage_service.GetDescriptionResponse")
-    @Action(input = "http://storage_service.unitn.com/StorageService/getDescriptionRequest", output = "http://storage_service.unitn.com/StorageService/getDescriptionResponse")
-    public String getDescription();
-
-    /**
-     * 
      * @param arg0
      */
     @WebMethod
@@ -129,5 +162,41 @@ public interface StorageService {
     public void createUser(
         @WebParam(name = "arg0", targetNamespace = "")
         UserData arg0);
+
+    /**
+     * 
+     * @return
+     *     returns com.unitn.storage_service.XkcdComic
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getRandomComic", targetNamespace = "http://storage_service.unitn.com/", className = "com.unitn.storage_service.GetRandomComic")
+    @ResponseWrapper(localName = "getRandomComicResponse", targetNamespace = "http://storage_service.unitn.com/", className = "com.unitn.storage_service.GetRandomComicResponse")
+    @Action(input = "http://storage_service.unitn.com/StorageService/getRandomComicRequest", output = "http://storage_service.unitn.com/StorageService/getRandomComicResponse")
+    public XkcdComic getRandomComic();
+
+    /**
+     * 
+     * @return
+     *     returns com.unitn.storage_service.Quote
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getMovieQuote", targetNamespace = "http://storage_service.unitn.com/", className = "com.unitn.storage_service.GetMovieQuote")
+    @ResponseWrapper(localName = "getMovieQuoteResponse", targetNamespace = "http://storage_service.unitn.com/", className = "com.unitn.storage_service.GetMovieQuoteResponse")
+    @Action(input = "http://storage_service.unitn.com/StorageService/getMovieQuoteRequest", output = "http://storage_service.unitn.com/StorageService/getMovieQuoteResponse")
+    public Quote getMovieQuote();
+
+    /**
+     * 
+     * @return
+     *     returns com.unitn.storage_service.Quote
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getFamousQuote", targetNamespace = "http://storage_service.unitn.com/", className = "com.unitn.storage_service.GetFamousQuote")
+    @ResponseWrapper(localName = "getFamousQuoteResponse", targetNamespace = "http://storage_service.unitn.com/", className = "com.unitn.storage_service.GetFamousQuoteResponse")
+    @Action(input = "http://storage_service.unitn.com/StorageService/getFamousQuoteRequest", output = "http://storage_service.unitn.com/StorageService/getFamousQuoteResponse")
+    public Quote getFamousQuote();
 
 }

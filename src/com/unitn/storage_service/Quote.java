@@ -7,18 +7,18 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for goal complex type.
+ * <p>Java class for quote complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="goal">
+ * &lt;complexType name="quote">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="content" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="createdDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="dueDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="quote" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="author" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="category" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -28,87 +28,87 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "goal", propOrder = {
-    "content",
-    "createdDate",
-    "dueDate"
+@XmlType(name = "quote", propOrder = {
+    "quote",
+    "author",
+    "category"
 })
-public class Goal {
+public class Quote {
 
-    protected String content;
-    protected String createdDate;
-    protected String dueDate;
+    protected String quote;
+    protected String author;
+    protected String category;
 
     /**
-     * Gets the value of the content property.
+     * Gets the value of the quote property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getContent() {
-        return content;
+    public String getQuote() {
+        return quote;
     }
 
     /**
-     * Sets the value of the content property.
+     * Sets the value of the quote property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setContent(String value) {
-        this.content = value;
+    public void setQuote(String value) {
+        this.quote = value;
     }
 
     /**
-     * Gets the value of the createdDate property.
+     * Gets the value of the author property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getCreatedDate() {
-        return createdDate;
+    public String getAuthor() {
+        return author;
     }
 
     /**
-     * Sets the value of the createdDate property.
+     * Sets the value of the author property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setCreatedDate(String value) {
-        this.createdDate = value;
+    public void setAuthor(String value) {
+        this.author = value;
     }
 
     /**
-     * Gets the value of the dueDate property.
+     * Gets the value of the category property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getDueDate() {
-        return dueDate;
+    public String getCategory() {
+        return category;
     }
 
     /**
-     * Sets the value of the dueDate property.
+     * Sets the value of the category property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setDueDate(String value) {
-        this.dueDate = value;
+    public void setCategory(String value) {
+        this.category = value;
     }
 
 }
