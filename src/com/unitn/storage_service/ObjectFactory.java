@@ -37,10 +37,12 @@ public class ObjectFactory {
     private final static QName _GetChartResponse_QNAME = new QName("http://storage_service.unitn.com/", "getChartResponse");
     private final static QName _SaveData_QNAME = new QName("http://storage_service.unitn.com/", "saveData");
     private final static QName _GetChart_QNAME = new QName("http://storage_service.unitn.com/", "getChart");
+    private final static QName _UpdateGoal_QNAME = new QName("http://storage_service.unitn.com/", "updateGoal");
     private final static QName _CreateUserResponse_QNAME = new QName("http://storage_service.unitn.com/", "createUserResponse");
     private final static QName _GetFromToStepsDataResponse_QNAME = new QName("http://storage_service.unitn.com/", "getFromToStepsDataResponse");
     private final static QName _XkcdComic_QNAME = new QName("http://storage_service.unitn.com/", "xkcdComic");
     private final static QName _GetLatestDataResponse_QNAME = new QName("http://storage_service.unitn.com/", "getLatestDataResponse");
+    private final static QName _UpdateGoalResponse_QNAME = new QName("http://storage_service.unitn.com/", "updateGoalResponse");
     private final static QName _SaveDataResponse_QNAME = new QName("http://storage_service.unitn.com/", "saveDataResponse");
     private final static QName _SaveGoalResponse_QNAME = new QName("http://storage_service.unitn.com/", "saveGoalResponse");
     private final static QName _GetFamousQuoteResponse_QNAME = new QName("http://storage_service.unitn.com/", "getFamousQuoteResponse");
@@ -158,6 +160,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link UpdateGoalResponse }
+     * 
+     */
+    public UpdateGoalResponse createUpdateGoalResponse() {
+        return new UpdateGoalResponse();
+    }
+
+    /**
      * Create an instance of {@link CreateUserResponse }
      * 
      */
@@ -203,6 +213,14 @@ public class ObjectFactory {
      */
     public GetChart createGetChart() {
         return new GetChart();
+    }
+
+    /**
+     * Create an instance of {@link UpdateGoal }
+     * 
+     */
+    public UpdateGoal createUpdateGoal() {
+        return new UpdateGoal();
     }
 
     /**
@@ -419,6 +437,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateGoal }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "updateGoal")
+    public JAXBElement<UpdateGoal> createUpdateGoal(UpdateGoal value) {
+        return new JAXBElement<UpdateGoal>(_UpdateGoal_QNAME, UpdateGoal.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CreateUserResponse }{@code >}}
      * 
      */
@@ -452,6 +479,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "getLatestDataResponse")
     public JAXBElement<GetLatestDataResponse> createGetLatestDataResponse(GetLatestDataResponse value) {
         return new JAXBElement<GetLatestDataResponse>(_GetLatestDataResponse_QNAME, GetLatestDataResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateGoalResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "updateGoalResponse")
+    public JAXBElement<UpdateGoalResponse> createUpdateGoalResponse(UpdateGoalResponse value) {
+        return new JAXBElement<UpdateGoalResponse>(_UpdateGoalResponse_QNAME, UpdateGoalResponse.class, null, value);
     }
 
     /**

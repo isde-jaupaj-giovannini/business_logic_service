@@ -1,5 +1,6 @@
-package com.unitn.data;
+package com.unitn.bl_service.data;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,16 +9,14 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Created by erinda on 2/6/16.
+ * Created by demiurgo on 2/7/16.
  */
+
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class NewStepResponse {
-
-    private boolean status;
-    private String url;
-    private String message;
-
+public class StatsResponse {
+    String chart;
 }

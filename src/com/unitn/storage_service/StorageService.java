@@ -138,6 +138,21 @@ public interface StorageService {
 
     /**
      * 
+     * @param arg0
+     * @return
+     *     returns com.unitn.storage_service.Goal
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "updateGoal", targetNamespace = "http://storage_service.unitn.com/", className = "com.unitn.storage_service.UpdateGoal")
+    @ResponseWrapper(localName = "updateGoalResponse", targetNamespace = "http://storage_service.unitn.com/", className = "com.unitn.storage_service.UpdateGoalResponse")
+    @Action(input = "http://storage_service.unitn.com/StorageService/updateGoalRequest", output = "http://storage_service.unitn.com/StorageService/updateGoalResponse")
+    public Goal updateGoal(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Goal arg0);
+
+    /**
+     * 
      * @param arg1
      * @param arg0
      * @return
