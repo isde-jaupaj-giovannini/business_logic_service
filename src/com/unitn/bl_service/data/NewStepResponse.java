@@ -1,4 +1,4 @@
-package com.unitn.data;
+package com.unitn.bl_service.data;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
