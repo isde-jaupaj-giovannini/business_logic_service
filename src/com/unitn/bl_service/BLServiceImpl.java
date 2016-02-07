@@ -109,12 +109,14 @@ public class BLServiceImpl implements BLService {
         }
 
         Chart chart = storage.getChart(lastData);
+        String chartUrl = chart!=null ? chart.getUrl(): "";
 
-        List<Goal> lsDoneGoal =  storage.getDoneGoals(telegramId);
-        List<Goal> lsActiveGoal =  storage.getGoals(telegramId);
+        List<Goal> lsDoneGoal = storage.getDoneGoals(telegramId);
+        int done = lsDoneGoal != null ? lsDoneGoal.size() : 0;
+        List<Goal> lsActiveGoal = storage.getGoals(telegramId);
+        int active = lsActiveGoal != null ? lsActiveGoal.size() : 0;
 
-
-        return new StatsResponse(chart.getUrl(), lsDoneGoal.size(), lsActiveGoal.size());
+        return new StatsResponse(chartUrl, done, active);
     }
 
 
