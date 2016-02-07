@@ -1,7 +1,7 @@
 package com.unitn.bl_service;
 
-import com.unitn.data.NewStepResponse;
-import com.unitn.data.StatsResponse;
+import com.unitn.bl_service.data.NewStepResponse;
+import com.unitn.bl_service.data.StatsResponse;
 import com.unitn.local_database.MeasureData;
 import com.unitn.local_database.UserData;
 import com.unitn.storage_service.Chart;
@@ -75,6 +75,8 @@ public class BLServiceImpl implements BLService {
                     response.setMessage(storage.getFamousQuote().getQuote());
                     response.setUrl(storage.getRandomComic().getImg());
 
+                    goal.setChecked(true);
+                    storage.updateGoal(goal);
                     break;
                 }
 
