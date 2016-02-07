@@ -70,30 +70,6 @@ public class Goal {
     }
 
     /**
-     * Gets the value of the checked property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
-     */
-    public Boolean isChecked() {
-        return checked;
-    }
-
-    /**
-     * Sets the value of the checked property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
-     */
-    public void setChecked(Boolean value) {
-        this.checked = value;
-    }
-
-    /**
      * Gets the value of the content property.
      * 
      * @return
