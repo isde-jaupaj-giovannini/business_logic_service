@@ -1,8 +1,10 @@
 package com.unitn.bl_service;
 
 import com.unitn.data.NewStepResponse;
+import com.unitn.data.StatsResponse;
 import com.unitn.local_database.MeasureData;
 import com.unitn.local_database.UserData;
+import com.unitn.storage_service.Chart;
 import com.unitn.storage_service.Goal;
 import com.unitn.storage_service.Storage;
 import com.unitn.storage_service.StorageService;
@@ -14,6 +16,7 @@ import java.net.InetAddress;
 import java.net.URISyntaxException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -35,7 +38,7 @@ public class BLServiceImpl implements BLService {
     @Override
     public boolean registerNewUser(UserData user) {
 
-        if (    user.getName() != null &&
+        if (user.getName() != null &&
                 user.getName().trim().length() > 0 &&
                 user.getHeight() >= 0 &&
                 user.getWeight() >= 0 &&
@@ -50,6 +53,7 @@ public class BLServiceImpl implements BLService {
         return false;
     }
 
+    // I integration logic
     @Override
     public NewStepResponse saveNewSteps(MeasureData measureData) {
         NewStepResponse response = new NewStepResponse();
@@ -57,19 +61,19 @@ public class BLServiceImpl implements BLService {
 
         storage.saveData(measureData);
         List<Goal> goals = storage.getGoals(measureData.getIdTelegram());
-        for (Goal goal: goals) {
-            long t1= Long.parseLong( goal.getCreatedDate().substring(6, goal.getCreatedDate().length()-2) );
+        for (Goal goal : goals) {
+            long t1 = Long.parseLong(goal.getCreatedDate().substring(6, goal.getCreatedDate().length() - 2));
             Calendar date1 = Calendar.getInstance();
             date1.setTimeInMillis(t1);
-            Calendar date2 = Calendar.getInstance() ;
+            Calendar date2 = Calendar.getInstance();
             try {
                 date2.setTime(simpleDateFormat.parse(goal.getDueDate()));
                 date2.set(Calendar.YEAR, date1.get(Calendar.YEAR));
                 int sum = storage.getFromToStepsData(measureData.getIdTelegram(), t1, date2.getTimeInMillis());
-                if(sum >= Integer.parseInt( goal.getContent() )){
+                if (sum >= Integer.parseInt(goal.getContent())) {
                     response.setStatus(true);
-                    response.setMessage( storage.getFamousQuote().getQuote() );
-                    response.setUrl( storage.getRandomComic().getImg() );
+                    response.setMessage(storage.getFamousQuote().getQuote());
+                    response.setUrl(storage.getRandomComic().getImg());
 
                     break;
                 }
@@ -82,12 +86,32 @@ public class BLServiceImpl implements BLService {
         }
 
 
-        if(!response.isStatus()){
-            response.setMessage( storage.getMovieQuote().getQuote() );
+        if (!response.isStatus()) {
+            response.setMessage(storage.getMovieQuote().getQuote());
         }
 
         return response;
     }
+
+    // II Integration logic
+    @Override
+    public StatsResponse statistics(int telegramId) {
+
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.WEEK_OF_YEAR, -1);
+
+        List<MeasureData> lastMeasuredata = storage.getLatestData(telegramId, c.getTimeInMillis());
+        List<Integer> lastData = new ArrayList<>(lastMeasuredata.size());
+        for (MeasureData data : lastMeasuredata) {
+            lastData.add(data.getSteps());
+        }
+
+        Chart chart = storage.getChart(lastData);
+
+
+        return new StatsResponse(chart.getUrl());
+    }
+
 
 
     public static void main(String[] args) throws IllegalArgumentException, IOException, URISyntaxException {

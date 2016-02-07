@@ -24,6 +24,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _Chart_QNAME = new QName("http://storage_service.unitn.com/", "chart");
     private final static QName _GetFromToStepsData_QNAME = new QName("http://storage_service.unitn.com/", "getFromToStepsData");
     private final static QName _CreateUser_QNAME = new QName("http://storage_service.unitn.com/", "createUser");
     private final static QName _GetFamousQuote_QNAME = new QName("http://storage_service.unitn.com/", "getFamousQuote");
@@ -33,7 +34,9 @@ public class ObjectFactory {
     private final static QName _GetGoals_QNAME = new QName("http://storage_service.unitn.com/", "getGoals");
     private final static QName _UserExistsResponse_QNAME = new QName("http://storage_service.unitn.com/", "userExistsResponse");
     private final static QName _UserExists_QNAME = new QName("http://storage_service.unitn.com/", "userExists");
+    private final static QName _GetChartResponse_QNAME = new QName("http://storage_service.unitn.com/", "getChartResponse");
     private final static QName _SaveData_QNAME = new QName("http://storage_service.unitn.com/", "saveData");
+    private final static QName _GetChart_QNAME = new QName("http://storage_service.unitn.com/", "getChart");
     private final static QName _CreateUserResponse_QNAME = new QName("http://storage_service.unitn.com/", "createUserResponse");
     private final static QName _GetFromToStepsDataResponse_QNAME = new QName("http://storage_service.unitn.com/", "getFromToStepsDataResponse");
     private final static QName _XkcdComic_QNAME = new QName("http://storage_service.unitn.com/", "xkcdComic");
@@ -195,6 +198,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetChart }
+     * 
+     */
+    public GetChart createGetChart() {
+        return new GetChart();
+    }
+
+    /**
+     * Create an instance of {@link GetChartResponse }
+     * 
+     */
+    public GetChartResponse createGetChartResponse() {
+        return new GetChartResponse();
+    }
+
+    /**
      * Create an instance of {@link UserExists }
      * 
      */
@@ -259,6 +278,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Chart }
+     * 
+     */
+    public Chart createChart() {
+        return new Chart();
+    }
+
+    /**
      * Create an instance of {@link GetFromToStepsData }
      * 
      */
@@ -272,6 +299,15 @@ public class ObjectFactory {
      */
     public Goal createGoal() {
         return new Goal();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Chart }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "chart")
+    public JAXBElement<Chart> createChart(Chart value) {
+        return new JAXBElement<Chart>(_Chart_QNAME, Chart.class, null, value);
     }
 
     /**
@@ -356,12 +392,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetChartResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "getChartResponse")
+    public JAXBElement<GetChartResponse> createGetChartResponse(GetChartResponse value) {
+        return new JAXBElement<GetChartResponse>(_GetChartResponse_QNAME, GetChartResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link SaveData }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "saveData")
     public JAXBElement<SaveData> createSaveData(SaveData value) {
         return new JAXBElement<SaveData>(_SaveData_QNAME, SaveData.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetChart }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://storage_service.unitn.com/", name = "getChart")
+    public JAXBElement<GetChart> createGetChart(GetChart value) {
+        return new JAXBElement<GetChart>(_GetChart_QNAME, GetChart.class, null, value);
     }
 
     /**

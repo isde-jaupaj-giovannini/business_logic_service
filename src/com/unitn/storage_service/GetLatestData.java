@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.XmlType;
 public class GetLatestData {
 
     protected int arg0;
-    protected int arg1;
+    protected long arg1;
 
     /**
      * Gets the value of the arg0 property.
@@ -56,7 +56,7 @@ public class GetLatestData {
      * Gets the value of the arg1 property.
      * 
      */
-    public int getArg1() {
+    public long getArg1() {
         return arg1;
     }
 
@@ -64,7 +64,7 @@ public class GetLatestData {
      * Sets the value of the arg1 property.
      * 
      */
-    public void setArg1(int value) {
+    public void setArg1(long value) {
         this.arg1 = value;
     }
 

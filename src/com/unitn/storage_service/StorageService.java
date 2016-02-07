@@ -56,7 +56,7 @@ public interface StorageService {
         @WebParam(name = "arg0", targetNamespace = "")
         int arg0,
         @WebParam(name = "arg1", targetNamespace = "")
-        int arg1);
+        long arg1);
 
     /**
      * 
@@ -201,5 +201,20 @@ public interface StorageService {
     @ResponseWrapper(localName = "getFamousQuoteResponse", targetNamespace = "http://storage_service.unitn.com/", className = "com.unitn.storage_service.GetFamousQuoteResponse")
     @Action(input = "http://storage_service.unitn.com/StorageService/getFamousQuoteRequest", output = "http://storage_service.unitn.com/StorageService/getFamousQuoteResponse")
     public Quote getFamousQuote();
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns com.unitn.storage_service.Chart
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getChart", targetNamespace = "http://storage_service.unitn.com/", className = "com.unitn.storage_service.GetChart")
+    @ResponseWrapper(localName = "getChartResponse", targetNamespace = "http://storage_service.unitn.com/", className = "com.unitn.storage_service.GetChartResponse")
+    @Action(input = "http://storage_service.unitn.com/StorageService/getChartRequest", output = "http://storage_service.unitn.com/StorageService/getChartResponse")
+    public Chart getChart(
+        @WebParam(name = "arg0", targetNamespace = "")
+        List<Integer> arg0);
 
 }

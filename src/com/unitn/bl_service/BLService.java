@@ -1,6 +1,7 @@
 package com.unitn.bl_service;
 
 import com.unitn.data.NewStepResponse;
+import com.unitn.data.StatsResponse;
 import com.unitn.local_database.MeasureData;
 import com.unitn.local_database.UserData;
 
@@ -27,4 +28,8 @@ public interface BLService {
     @WebMethod
     @WebResult
     NewStepResponse saveNewSteps(MeasureData measureData);
+
+    @WebMethod
+    @WebResult
+    StatsResponse statistics(int telegramId);
 }
